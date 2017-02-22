@@ -1,0 +1,30 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorPrimary">@color/colorPrimaryText</item>
+        <item name="android:textColorSecondary">@color/colorSecondaryText</item>
+        <item name="colorControlHighlight">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme" parent="AppBaseTheme"/>
+
+    <style name="Meteor" parent=""/>
+
+    <style name="Meteor.Detail.Icon" parent="">
+        <item name="android:tint">@color/colorSecondaryText</item>
+        <item name="android:layout_marginLeft">@dimen/space_double</item>
+        <item name="android:layout_marginStart">@dimen/space_double</item>
+        <item name="android:layout_marginTop">@dimen/space_double</item>
+    </style>
+
+    <style name="Meteor.Detail.Text" parent="">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Body1</item>
+        <item name="android:layout_marginTop">@dimen/space_double</item>
+        <item name="android:paddingTop">@dimen/space_mini</item>
+        <item name="android:paddingLeft">@dimen/space_normal</item>
+    </style>
+</resources>

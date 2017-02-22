@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="meteor" type="com.example.meteor.network.model.Meteor"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/item_meteor_height"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+    >
+
+        <TextView
+            android:id="@+id/meteor_icon"
+            android:layout_width="@dimen/meteor_item_icon_size"
+            android:layout_height="@dimen/meteor_item_icon_size"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/space_double"
+            android:layout_marginStart="@dimen/space_double"
+            android:layout_marginTop="@dimen/space_normal"
+            android:background="@drawable/oval"
+            android:gravity="center"
+            android:text="@{meteor.name.substring(0,1)}"
+            android:textAllCaps="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline"
+            android:textColor="@color/white"
+            tools:text="A"
+        />
+
+        <TextView
+            android:id="@+id/meteor_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@id/meteor_icon"
+            android:layout_marginLeft="@dimen/item_text_space"
+            android:layout_marginStart="@dimen/item_text_space"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@{meteor.name}"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+            tools:text="Name"
+        />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/meteor_icon"
+            android:layout_below="@id/meteor_name"
+            android:layout_marginLeft="@dimen/item_text_space"
+            android:layout_marginStart="@dimen/item_text_space"
+            app:date="@{meteor.year}"
+            tools:text="year"
+        />
+
+    </RelativeLayout>
+</layout>

@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="view" type="com.example.meteor.ui.DetailView"/>
+        <variable name="viewModel" type="com.example.meteor.viewmodel.DetailViewModel"/>
+        <variable name="meteor" type="com.example.meteor.network.model.Meteor"/>
+    </data>
+
+    <android.support.design.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <fragment
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <android.support.v4.widget.NestedScrollView
+            android:id="@+id/detail_bottom_sheet"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/bottom_sheet_height"
+            android:background="@color/cardview_light_background"
+            android:clipToPadding="true"
+            app:behavior_hideable="false"
+            app:behavior_peekHeight="?attr/actionBarSize"
+            app:layout_behavior="@string/bottom_sheet_behavior"
+        >
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/detail_meteor_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    android:background="?attr/colorPrimary"
+                    android:padding="@dimen/space_double"
+                    android:text='@{meteor.name}'
+                    android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+                    tools:text="Name"
+                />
+
+                <ImageView
+                    android:id="@+id/detail_calendar_icon"
+                    style="@style/Meteor.Detail.Icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/detail_meteor_name"
+                    android:src="@drawable/ic_calendar_black_24dp"
+                />
+
+                <TextView
+                    android:id="@+id/detail_year"
+                    style="@style/Meteor.Detail.Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/detail_meteor_name"
+                    android:layout_toEndOf="@id/detail_calendar_icon"
+                    android:layout_toRightOf="@id/detail_calendar_icon"
+                    app:date="@{meteor.year}"
+                    tools:text="year"
+                />
+
+                <ImageView
+                    android:id="@+id/detail_place_icon"
+                    style="@style/Meteor.Detail.Icon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/detail_calendar_icon"
+                    android:src="@drawable/ic_place_black_24dp"
+                />
+
+                <TextView
+                    android:id="@+id/detail_meteor_coordinates"
+                    style="@style/Meteor.Detail.Text"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/detail_year"
+                    android:layout_toEndOf="@id/detail_place_icon"
+                    android:layout_toRightOf="@id/detail_place_icon"
+                    android:text='@{meteor.latitude + ", " + meteor.longitude}'
+                    tools:text="coordinates"
+                />
+
+            </RelativeLayout>
+
+        </android.support.v4.widget.NestedScrollView>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/gradient_background">
+
+            <include layout="@layout/toolbar"/>
+        </FrameLayout>
+
+    </android.support.design.widget.CoordinatorLayout>
+
+</layout>

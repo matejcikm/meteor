@@ -1,0 +1,10 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="space_mini">4dp</dimen>
+    <dimen name="space_normal">8dp</dimen>
+    <dimen name="space_double">16dp</dimen>
+    <dimen name="item_text_space">72dp</dimen>
+    <dimen name="meteor_item_icon_size">40dp</dimen>
+    <dimen name="bottom_sheet_height">350dp</dimen>
+    <dimen name="item_meteor_height">88dp</dimen>
+</resources>
